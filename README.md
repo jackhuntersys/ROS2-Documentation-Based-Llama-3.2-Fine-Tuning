@@ -89,11 +89,7 @@ The notebook contains the training workflow and model configuration used for the
 * Fine-tuning an LLM in a GPU-based Google Colab environment
 * Applying LLM technology to the ROS2 and robotics domain
 
-## Colab Notebook
 
-The complete implementation is available in Google Colab:
-
-[Open the Google Colab Notebook](https://colab.research.google.com/drive/1Ol43odHXBVcXacvNl7iOOhgPXw1H8bEs)
 
 ## Future Improvements
 
