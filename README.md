@@ -62,7 +62,7 @@ The project uses **ROS2 technical documentation** as the source of domain-specif
 
 The documentation is processed and prepared for use in the LLM fine-tuning workflow.
 
-> Detailed dataset statistics and preprocessing parameters are intentionally not listed here until they are verified from the original notebook.
+
 
 ## Training Environment
 
