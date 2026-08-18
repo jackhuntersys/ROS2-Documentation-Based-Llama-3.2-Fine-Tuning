@@ -109,3 +109,61 @@ Possible extensions of this project include:
 ## Disclaimer
 
 This project is an experimental implementation for learning and research into domain-specific LLM fine-tuning. Model performance should be evaluated using a dedicated ROS2 question-answering benchmark before making claims about accuracy or reliability.
+
+
+## Features
+
+- Base model: [`meta-llama/Llama-3.2-1B`](https://huggingface.co/meta-llama/Llama-3.2-1B)
+- Parameter-efficient fine-tuning with **LoRA**
+- Training powered by **TRL SFTTrainer**
+- Custom ROS 2 / Nav2 instruction dataset
+- Before / after generation examples included
+
+---
+
+## Requirements
+
+- Python 3.10+
+- CUDA GPU (recommended)
+- Hugging Face account with access to Llama 3.2 models
+
+Install dependencies:
+
+```bash
+pip install -U transformers peft trl datasets accelerate bitsandbytes
+pip install -U fsspec huggingface_hub pyarrow
+```
+
+> If you encounter a `torchao` version conflict, run:
+> ```bash
+> pip uninstall -y torchao
+> ```
+
+---
+
+## Dataset
+
+Training data: `ros2_llama3_sft_large.jsonl`  
+Validation data: `ros2_llama3_sft_large_val.jsonl`
+
+Expected format (JSONL):
+
+```json
+{
+  "messages": [
+    {"role": "system", "content": "..."},
+    {"role": "user", "content": "instruction"},
+    {"role": "assistant", "content": "expected answer"}
+  ],
+  "category": "nav2",
+  "text": "formatted training text"
+}
+```
+
+The training script keeps only the `"text"` column.
+## Known Limitations & Tips
+
+- Only `q_proj` and `v_proj` are targeted — consider adding `k_proj`, `o_proj`, `gate_proj`, `up_proj`, `down_proj` for better results.
+- Training runs for 100 epoch — increase if the dataset is large or the task is complex.
+- Always keep your Hugging Face token private (use environment variables or `huggingface-cli login`).
+- Save the tokenizer together with the adapter for easier deployment.
