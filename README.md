@@ -1,10 +1,8 @@
-# ROS2-Documentation-Based-Llama-3.2-Fine-Tuning
-
-# ROS2 LLM Fine-Tuning with Llama 3.2 and LoRA
+# ROS2-Documentation-Based LLM Fine-Tuning with Llama 3.2 and LoRA
 
 A domain-specific Large Language Model (LLM) fine-tuning project using **ROS2 documentation** as the source of technical training data.
 
-The project uses **Llama 3.2** and **LoRA (Low-Rank Adaptation)** to adapt the language model toward ROS2-related technical knowledge.
+The project uses **Llama 3.2 1B** and **LoRA (Low-Rank Adaptation)** to adapt the language model toward ROS2-related technical knowledge.
 
 ## Project Overview
 
